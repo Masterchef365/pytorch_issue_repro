@@ -5,7 +5,7 @@ setup(
     name="add_one",
     ext_modules=[
         CppExtension(
-            name="add_one",
+            name="libadd_one",
             sources=["add_one.cpp"],
         )
     ],

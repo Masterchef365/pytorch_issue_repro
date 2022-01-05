@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import sys
 
-torch.ops.load_library('add_one_op/build/add_one.so')
+torch.ops.load_library('add_one_op/build/libadd_one.so')
 add_one = torch.ops.my_ops.add_one
 
 class Model(nn.Module):

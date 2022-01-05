@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import torch
 
-torch.ops.load_library('add_one_op/build/add_one.so')
+torch.ops.load_library('add_one_op/build/libadd_one.so')
 
 model = torch.jit.load("traced.pt")
 
