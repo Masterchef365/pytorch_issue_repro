@@ -1,5 +1,5 @@
-image_name=torchscript-rust-docker-image
-container_name=torchscript-rust-docker
+image_name=torch_cmake_docker
+container_name=torch_cmake_docker
 
 if ! docker inspect $image_name &>/dev/null; then
     docker build -t $image_name - < Dockerfile
@@ -15,5 +15,6 @@ if [ "$(docker ps | grep $container_name)" ]; then
     docker exec -it $container_name $args
 else
     echo "Docker container $container_name not running, starting..."
-    docker run --rm -it --gpus all -v $PWD:/cwd -w /cwd --name $container_name $image_name $args
+    #docker run --rm -it --gpus all -v $PWD:/cwd -w /cwd --name $container_name $image_name $args
+    docker run --rm -it -v $PWD:/cwd -w /cwd --name $container_name $image_name $args
 fi
