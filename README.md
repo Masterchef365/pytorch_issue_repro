@@ -1,5 +1,5 @@
-# Using Torchscript from Rust with custom ops
-This repository demonstrates using a Docker container to build a Rust application which loads a Torchscript model serialized from Python with custom operations written in C++ and CUDA.
+# Using Torchscript with custom ops from C++
+This repository aims to demonstrate using custom C++ operations in PyTorch, serializing a model to TorchScript, then using said TorchScript model from C++.
 
 ## Sources
 * [Pytorch Docker container](https://hub.docker.com/r/pytorch/pytorch/tags)
