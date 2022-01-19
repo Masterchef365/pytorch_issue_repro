@@ -1,7 +1,7 @@
 # Using Torchscript with custom ops from C++
 This repository aims to demonstrate using custom C++ operations in PyTorch, serializing a model to TorchScript, then using said TorchScript model from C++. Currently this results in linker errors.
 
-Assuming Docker is installed, one may reproduce the issue with the following command:
+Assuming Docker and [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) is installed, one may reproduce the issue with the following command:
 ```sh
 ./run_docker.sh ./full_test.sh 
 ```
