@@ -8,6 +8,5 @@ find_package(PythonLibs 3.7 REQUIRED)
 link_directories("add_one_op/build/")
 
 add_executable(test_op test_op.cpp)
-target_link_libraries(test_op "${PYTHON_LIBRARIES}" "${TORCH_LIBRARIES}")
-target_link_libraries(test_op add_one)
+target_link_libraries(test_op add_one "${TORCH_LIBRARIES}" "${PYTHON_LIBRARIES}")
 set_property(TARGET test_op PROPERTY CXX_STANDARD 14)
