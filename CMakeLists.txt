@@ -1,13 +1,9 @@
-# Basic CMake setup
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 project(custom_ops)
-#set( CMAKE_VERBOSE_MAKEFILE on )
+set( CMAKE_VERBOSE_MAKEFILE on )
 
 find_package(Torch REQUIRED)
-find_package(PythonLibs 3 REQUIRED)
-
-#add_library(add_one SHARED IMPORTED)
-#set_target_properties(add_one PROPERTIES IMPORTED_LOCATION "add_one_op/build/")
+find_package(PythonLibs 3.7 REQUIRED)
 
 link_directories("add_one_op/build/")
 
