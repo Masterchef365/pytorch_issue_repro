@@ -15,6 +15,5 @@ if [ "$(docker ps | grep $container_name)" ]; then
     docker exec -it $container_name $args
 else
     echo "Docker container $container_name not running, starting..."
-    #docker run --rm -it --gpus all -v $PWD:/cwd -w /cwd --name $container_name $image_name $args
-    docker run --rm -it -v $PWD:/cwd -w /cwd --name $container_name $image_name $args
+    docker run --rm -it --gpus all -v $PWD:/cwd -w /cwd --name $container_name $image_name $args
 fi

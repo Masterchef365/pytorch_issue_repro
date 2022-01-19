@@ -4,6 +4,7 @@ project(custom_ops)
 #set( CMAKE_VERBOSE_MAKEFILE on )
 
 find_package(Torch REQUIRED)
+find_package(PythonLibs 3 REQUIRED)
 
 #add_library(add_one SHARED IMPORTED)
 #set_target_properties(add_one PROPERTIES IMPORTED_LOCATION "add_one_op/build/")
@@ -11,6 +12,6 @@ find_package(Torch REQUIRED)
 link_directories("add_one_op/build/")
 
 add_executable(test_op test_op.cpp)
-target_link_libraries(test_op "${TORCH_LIBRARIES}")
+target_link_libraries(test_op "${PYTHON_LIBRARIES}" "${TORCH_LIBRARIES}")
 target_link_libraries(test_op add_one)
 set_property(TARGET test_op PROPERTY CXX_STANDARD 14)
