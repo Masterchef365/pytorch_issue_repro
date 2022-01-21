@@ -1,12 +1,27 @@
 #include <torch/script.h>
-
-// Here we fool C++ into linking our custom op
-extern "C" {
-    void test_library();
-}
+#include <dlfcn.h>
+#include <iostream>
+#include <fstream>
+#include <cstdio>
 
 int main(int argc, const char* argv[]) {
-    test_library(); // We must actually use it here 
-    torch::jit::Module module = torch::jit::load("traced.pt");
-    std::cout << "OK" << std::endl;
+	auto path = "/cwd/add_one_op/build/libadd_one.so";
+
+	std::ifstream file(path);
+	if(file.is_open()){
+		std::cout << "Found library" << std::endl;
+	} else {
+		std::cout << "File not found" << std::endl;
+		return -1;
+	}
+
+	void* load_res = dlopen(path, RTLD_NOW);
+	if (load_res) {
+		std::cout << "Load succeeded!" << std::endl;
+	} else {
+		std::cout << "Load failed; " << dlerror() << std::endl;
+		return -1;
+	}
+	torch::jit::Module module = torch::jit::load("traced.pt");
+	std::cout << "OK" << std::endl;
 }
