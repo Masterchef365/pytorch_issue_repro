@@ -1,4 +1,5 @@
-#include <torch/extension.h>
+#include <torch/script.h>
+//#include <torch/extension.h>
 
 /// In order to load this dynamic library up with C++ or Rust, we need to fool the linker into thinking we use the library from our code.
 #ifdef _WIN32 
